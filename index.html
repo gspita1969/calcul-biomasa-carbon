@@ -12,12 +12,18 @@
     :root{ --bg:#f5f2e9; --panel:#fffaf0; --panel-border:#d9c7a0; --panel-shadow: rgba(153,119,74,0.12); --accent:#4CAF50; --accent-dark:#388E3C; --text:#2b2b2b; --muted:#6f6a60; --warn:#f4b400; --bad:#c62828; --good:#2e7d32; --chip-bg:#f4edd9; --table-head:#eee6d0; --table-row-hover:#f2ead7; --ghost-border:#cdbfa8; --link:#2a6f3a; }
 
     html,body{ margin:0;padding:0; background:var(--bg);color:var(--text); font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial; min-height:100%; }
-    header{ padding:18px 20px; background:linear-gradient(90deg,#e7eddc 0%, #f5f2e9 100%); border-bottom:1px solid var(--panel-border); }
-    header h1{margin:0;font-size:1.25rem;color:#215732}
+    header{ padding:12px 16px; background:linear-gradient(90deg,#e7eddc 0%, #f5f2e9 100%); border-bottom:1px solid var(--panel-border); display:flex; align-items:center; gap:10px; justify-content:space-between }
+    .brand{display:flex; align-items:center; gap:10px}
+    header h1{margin:0;font-size:1.15rem;color:#215732}
+    header img#logo{height:40px; width:auto; display:block}
 
-    main{max-width:1100px;margin:0 auto;padding:18px;padding-bottom:80px}
-    .card{ background:var(--panel); border:1px solid var(--panel-border); border-radius:12px; padding:16px; margin:12px 0; box-shadow:0 8px 24px var(--panel-shadow); }
-    .grid{display:grid;gap:12px}
+    #offlineBanner{ display:none; margin:0; padding:6px 10px; background:#fff3cd; color:#594400; border-top:1px solid #ffe08a; border-bottom:1px solid #ffe08a; font-size:.92rem }
+    #updateBar{ display:none; position:fixed; left:16px; right:16px; bottom:80px; background:#e6f4ea; color:#1b5e20; border:1px solid #b7d9bb; border-radius:10px; padding:10px 12px; box-shadow:0 6px 18px rgba(0,0,0,.12); z-index:9998 }
+    #updateBar .actions{ display:flex; gap:8px; margin-top:8px }
+
+    main{max-width:1100px;margin:0 auto;padding:12px 16px 90px 16px}
+    .card{ background:var(--panel); border:1px solid var(--panel-border); border-radius:12px; padding:12px; margin:10px 0; box-shadow:0 8px 24px var(--panel-shadow); }
+    .grid{display:grid;gap:10px}
     .grid.cols-4{grid-template-columns: repeat(4, minmax(0,1fr))}
 
     label{display:block;font-size:.88rem;color:var(--muted);margin-bottom:6px}
@@ -34,24 +40,26 @@
 
     .row{display:flex;gap:10px;flex-wrap:wrap}
     .row > * {flex:1 1 200px}
+    .compact-controls button{ padding:8px 10px; font-size:.95rem }
+    .compact-controls input{ padding:8px 10px; font-size:.95rem }
     small.note{color:#857a66;display:block;margin-top:6px}
 
     .pill{display:inline-block;background:var(--chip-bg);border:1px solid var(--panel-border);color:#3a3a2a; padding:6px 10px;border-radius:20px;margin-right:6px;font-size:.85rem}
 
-    .kpis{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
-    .kpi{flex:1 1 160px;background:#faf7ef;border:1px solid var(--panel-border);border-radius:10px;padding:10px}
-    .kpi .label{color:#5c5a4f;font-size:.85rem}
-    .kpi .value{font-size:1.15rem;font-weight:700;margin-top:4px;color:#215732}
+    .kpis{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+    .kpi{flex:1 1 160px;background:#faf7ef;border:1px solid var(--panel-border);border-radius:10px;padding:8px}
+    .kpi .label{color:#5c5a4f;font-size:.82rem}
+    .kpi .value{font-size:1.1rem;font-weight:700;margin-top:2px;color:#215732}
 
     table{width:100%;border-collapse:separate;border-spacing:0;margin-top:8px}
-    th,td{padding:10px;border-bottom:1px solid var(--panel-border);text-align:left;font-size:.94rem;vertical-align:middle}
+    th,td{padding:8px 10px;border-bottom:1px solid var(--panel-border);text-align:left;font-size:.94rem;vertical-align:middle}
     th{position:sticky;top:0;background:var(--table-head);z-index:1}
     tbody tr:hover{background:var(--table-row-hover)}
     .right{text-align:right}
     .center{text-align:center}
     .muted{color:#6f6a60}
 
-    #preview{ margin-top:10px;padding:12px;background:#f7f3e6;border:1px solid var(--panel-border); border-radius:10px }
+    #preview{ margin-top:8px;padding:10px;background:#f7f3e6;border:1px solid var(--panel-border); border-radius:10px }
     #preview strong{color:#2a6f3a}
     #previewList li{margin:4px 0;color:#3c3a30}
 
@@ -61,23 +69,43 @@
     details{border:1px dashed var(--panel-border);border-radius:8px;padding:10px;background:#fff}
     summary{cursor:pointer;color:#2a6f3a}
 
-    footer{ position:fixed; left:0; right:0; bottom:0; background:#fffaf0; border-top:1px solid var(--panel-border); padding:10px 16px; font-size:.9rem; color:#3a3a2a; display:flex; justify-content:space-between; align-items:center }
+    footer{ position:fixed; left:0; right:0; bottom:0; background:#fffaf0; border-top:1px solid var(--panel-border); padding:8px 16px; font-size:.9rem; color:#3a3a2a; display:flex; justify-content:space-between; align-items:center }
     footer .app-name{ font-weight:600; color:#215732 }
 
     .inline{display:flex; align-items:center; gap:10px}
     .thumb{max-width:54px;max-height:54px;border-radius:6px;border:1px solid #d9c7a0;object-fit:cover}
 
-    /* Responsivitate mobil */
-    @media (max-width: 768px){ .grid.cols-4{grid-template-columns:1fr} .row{flex-direction:column} button{font-size:1rem;padding:12px} header h1{font-size:1rem} footer{flex-direction:column; gap:6px; align-items:flex-start} }
+    .list-wrap{overflow:auto;margin-top:8px;border:1px solid var(--panel-border);border-radius:8px;background:#fff}
+
+    @media (max-width: 768px){
+      .grid.cols-4{grid-template-columns:1fr}
+      .row{flex-direction:column}
+      header h1{font-size:1rem}
+      .compact-controls button, .compact-controls input{ font-size:.9rem; padding:7px 9px }
+      .list-wrap{ height: calc(100vh - 360px); max-height:none }
+      footer{flex-direction:column; gap:6px; align-items:flex-start}
+      header img#logo{height:34px}
+    }
   </style>
 </head>
 <body>
 <header>
-  <h1>Calcul biomasa si carbon</h1>
+  <div class="brand">
+    <img id="logo" src="logo.png" alt="Siglă" loading="eager" decoding="async"/>
+    <h1>Calcul biomasa si carbon</h1>
+  </div>
+  <div id="netIndicator" class="pill" style="display:none;">Mod offline</div>
 </header>
+<div id="offlineBanner">Mod offline activ – unele funcții care depind de internet (ex. încărcarea bibliotecilor pentru XLSX/ZIP la prima utilizare) pot fi indisponibile.</div>
+<div id="updateBar">
+  <div><strong>Aplicația a fost actualizată.</strong> Reîncarcă pentru a vedea ultima versiune.</div>
+  <div class="actions">
+    <button id="btnReload" class="primary" style="width:auto;max-width:200px">Reîncarcă acum</button>
+    <button id="btnLater" class="ghost" style="width:auto;max-width:200px">Mai târziu</button>
+  </div>
+</div>
 
 <main>
-  <!-- ============== FORMULAR INTRODUCERE ============== -->
   <section class="card">
     <div class="grid cols-4">
       <div>
@@ -119,7 +147,7 @@
       </div>
     </div>
 
-    <div class="grid cols-4" style="margin-top:10px">
+    <div class="grid cols-4" style="margin-top:8px">
       <div>
         <label for="density">Densitate lemn ρ [g/cm³]</label>
         <div class="inline">
@@ -140,7 +168,7 @@
       </div>
       <div>
         <label for="photo">Fotografie copac</label>
-        <div class="row">
+        <div class="row compact-controls">
           <input id="photo" type="file" accept="image/*" capture="environment" />
           <button id="btnAdd" class="primary" type="button">Adaugă în listă</button>
           <button id="btnGeo" type="button" class="ghost">Obține geolocația</button>
@@ -160,7 +188,6 @@
     </div>
   </section>
 
-  <!-- ============== LISTĂ + KPI + IMPORT/EXPORT ============== -->
   <section class="card">
     <div class="row" style="align-items:center;justify-content:space-between">
       <div>
@@ -168,7 +195,7 @@
         <span class="pill" id="countPill">0 arbori</span>
         <span class="pill muted" id="parcelPill">Parcela: —</span>
       </div>
-      <div class="row" style="max-width:980px">
+      <div class="row compact-controls" style="max-width:980px">
         <input id="fileInput" type="file" accept=".xlsx,.xls,.csv" style="display:none" />
         <button id="btnImport" class="ghost" type="button" title="Import XLSX/CSV cu: parcela, specie (română), diametru, înălțime, lat, lon">Import XLSX/CSV</button>
         <button id="btnExportCSV" class="ghost" type="button">Export CSV (Excel)</button>
@@ -187,7 +214,7 @@
       <div class="kpi"><div class="label">Nr. specii distincte</div><div class="value" id="kpiSpecies">0</div></div>
     </div>
 
-    <div style="max-height:520px;overflow:auto;margin-top:8px;border:1px solid var(--panel-border);border-radius:8px;background:#fff">
+    <div class="list-wrap" id="listWrap" style="max-height:520px;">
       <table id="tbl">
         <thead>
           <tr>
@@ -211,13 +238,12 @@
       </table>
     </div>
 
-    <details style="margin-top:10px">
+    <details style="margin-top:8px">
       <summary>Note metodologice & import</summary>
       <ul>
         <li>Import XLSX/CSV acceptă antete flexibile (ex.: <code>Parcela</code>, <code>Specia</code> (română), <code>Diametru_cm</code>/<code>DBH_cm</code>, <code>Inaltime_m</code>/<code>H_m</code>, <code>Lat</code>, <code>Lon</code>).</li>
         <li>Speciile în română sunt mapate automat la denumiri științifice și densități. Dacă nu se găsește o potrivire, se folosește densitatea implicită 0.60 g/cm³.</li>
         <li>Importul de <strong>XLSX</strong> are nevoie de internet la prima utilizare pentru a încărca biblioteca SheetJS; <strong>CSV</strong> funcționează și offline.</li>
-        <li><strong>Fotografii</strong>: sunt stocate local (base64) cu fiecare înregistrare; la export ZIP sunt re-salvate ca fișiere JPG.</li>
       </ul>
     </details>
   </section>
@@ -232,25 +258,7 @@
 
 <script>
 // ======== Densități lemn (g/cm³) ========
-const WOOD_DENSITY = {
-  "Fagus sylvatica": 0.72,
-  "Quercus sp.": 0.67,
-  "Quercus petraea": 0.67,
-  "Picea abies": 0.41,
-  "Abies alba": 0.41,
-  "Pinus sylvestris": 0.52,
-  "Betula pendula": 0.57,
-  "Populus sp.": 0.35,
-  "Carpinus betulus": 0.75,
-  "Fraxinus excelsior": 0.67,
-  "Acer pseudoplatanus": 0.63,
-  "Acer platanoides": 0.63,
-  "Acer campestre": 0.63,
-  "Tilia cordata": 0.52,
-  "Tilia platyphyllos": 0.52,
-  "Ulmus spp.": 0.58,
-  "Robinia pseudoacacia": 0.69
-};
+const WOOD_DENSITY = { "Fagus sylvatica": 0.72, "Quercus sp.": 0.67, "Quercus petraea": 0.67, "Picea abies": 0.41, "Abies alba": 0.41, "Pinus sylvestris": 0.52, "Betula pendula": 0.57, "Populus sp.": 0.35, "Carpinus betulus": 0.75, "Fraxinus excelsior": 0.67, "Acer pseudoplatanus": 0.63, "Acer platanoides": 0.63, "Acer campestre": 0.63, "Tilia cordata": 0.52, "Tilia platyphyllos": 0.52, "Ulmus spp.": 0.58, "Robinia pseudoacacia": 0.69 };
 const DEFAULT_DENSITY = 0.60;
 
 function norm(s){ return (s||'').toString().trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim(); }
@@ -281,9 +289,15 @@ const toastEl = document.getElementById('toast');
 const fileInput = document.getElementById('fileInput');
 const btnImport = document.getElementById('btnImport');
 const btnGeo = document.getElementById('btnGeo');
+const netIndicator = document.getElementById('netIndicator');
+const offlineBanner = document.getElementById('offlineBanner');
+const updateBar = document.getElementById('updateBar');
+const btnReload = document.getElementById('btnReload');
+const btnLater = document.getElementById('btnLater');
 
 let rows = [];
 let photoData = null; // dataURL (compresată)
+let newSWReg = null;
 
 function toast(msg){ toastEl.textContent = msg; toastEl.classList.add('show'); setTimeout(()=>toastEl.classList.remove('show'), 3200); }
 function fmt(x, d=2){ return Number(x).toLocaleString('ro-RO',{maximumFractionDigits:d,minimumFractionDigits:d}); }
@@ -292,9 +306,9 @@ function toNum(v){ if(v===null||v===undefined) return NaN; const s = String(v).r
 // AGB = 0.0673 * (ρ * D^2 * H)^0.976
 function calcAGB(rho, D_cm, H_m){ if(rho<=0 || D_cm<=0 || H_m<=0) return 0; const term = rho * (D_cm**2) * H_m; return 0.0673 * Math.pow(term, 0.976); }
 
-function refreshKPIs(){ let sumAGB=0, sumC=0, sumCO2=0; const sp = new Set(); rows.forEach(r=>{ sumAGB+=r.agb; sumC+=r.C; sumCO2+=r.CO2; sp.add(r.species); }); kpiAGB.textContent=fmt(sumAGB,1); kpiC.textContent=fmt(sumC,1); kpiCO2.textContent=fmt(sumCO2,1); kpiSpecies.textContent=sp.size; countPill.textContent=`${rows.length} arbori`; parcelPill.textContent=`Parcela: ${parcel.value || '—'}`; }
+function refreshKPIs(){ let sumAGB=0, sumC=0, sumCO2=0; const sp = new Set(); rows.forEach(r=>{ sumAGB+=r.agb; sumC+=r.C; sumCO2+=r.CO2; sp.add(r.species); }); kpiAGB && (kpiAGB.textContent=fmt(sumAGB,1)); kpiC && (kpiC.textContent=fmt(sumC,1)); kpiCO2 && (kpiCO2.textContent=fmt(sumCO2,1)); kpiSpecies && (kpiSpecies.textContent=sp.size); countPill && (countPill.textContent=`${rows.length} arbori`); parcelPill && (parcelPill.textContent=`Parcela: ${parcel.value || '—'}`); }
 
-function redrawTable(){ tbody.innerHTML=''; rows.forEach((r,i)=>{ const tr=document.createElement('tr'); tr.innerHTML=`<td class="center">${i+1}</td><td>${r.parcel}</td><td>${r.species}</td><td class="right">${fmt(r.dbh,1)}</td><td class="right">${fmt(r.height,1)}</td><td class="right">${fmt(r.density,2)}</td><td class="right">${fmt(r.agb,1)}</td><td class="right">${fmt(r.C,1)}</td><td class="right">${fmt(r.CO2,1)}</td><td class="muted">${r.lat ?? ''}</td><td class="muted">${r.lon ?? ''}</td><td>${r.photo ? `<img class='thumb' src='${r.photo}' alt='foto'>` : ''}</td><td class="muted">${new Date(r.ts).toLocaleString('ro-RO')}</td><td><button class="bad" data-idx="${i}">Șterge</button></td>`; tbody.appendChild(tr); }); tbody.querySelectorAll('button.bad').forEach(btn=>{ btn.addEventListener('click', e=>{ const idx=Number(e.target.getAttribute('data-idx')); rows.splice(idx,1); redrawTable(); refreshKPIs(); refreshPreview(); }); }); }
+function redrawTable(){ tbody.innerHTML=''; rows.forEach((r,i)=>{ const tr=document.createElement('tr'); tr.innerHTML=`<td class=\"center\">${i+1}</td><td>${r.parcel}</td><td>${r.species}</td><td class=\"right\">${fmt(r.dbh,1)}</td><td class=\"right\">${fmt(r.height,1)}</td><td class=\"right\">${fmt(r.density,2)}</td><td class=\"right\">${fmt(r.agb,1)}</td><td class=\"right\">${fmt(r.C,1)}</td><td class=\"right\">${fmt(r.CO2,1)}</td><td class=\"muted\">${r.lat ?? ''}</td><td class=\"muted\">${r.lon ?? ''}</td><td>${r.photo ? `<img class='thumb' src='${r.photo}' alt='foto'>` : ''}</td><td class=\"muted\">${new Date(r.ts).toLocaleString('ro-RO')}</td><td><button class=\"bad\" data-idx=\"${i}\">Șterge</button></td>`; tbody.appendChild(tr); }); tbody.querySelectorAll('button.bad').forEach(btn=>{ btn.addEventListener('click', e=>{ const idx=Number(e.target.getAttribute('data-idx')); rows.splice(idx,1); redrawTable(); refreshKPIs(); refreshPreview(); }); }); }
 
 function refreshPreview(){ const ul=document.getElementById('previewList'); ul.innerHTML=''; rows.slice(-5).forEach(r=>{ const li=document.createElement('li'); li.textContent=`${r.species} – D:${r.dbh} cm, H:${r.height} m, CO₂: ${fmt(r.CO2,1)} kg`; ul.appendChild(li); }); }
 
@@ -302,7 +316,7 @@ function refreshPreview(){ const ul=document.getElementById('previewList'); ul.i
 photoInput.addEventListener('change', ()=>{
   const file = photoInput.files && photoInput.files[0];
   if(!file){ photoData = null; return; }
-  const maxDim = 1600; const quality = 0.85; // reduce dimensiunea pentru ZIP
+  const maxDim = 1600; const quality = 0.85;
   const url = URL.createObjectURL(file);
   const img = new Image();
   img.onload = ()=>{
@@ -346,12 +360,39 @@ async function handleFile(file){ const name = file.name.toLowerCase(); if(name.e
 function isSecure(){ return location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1'; }
 function platformHint(){ const ua = navigator.userAgent; if(/Android/i.test(ua)) return 'Pe Android/Chrome: apasă pe iconița lacăt → Permisiuni → Locație → Permite. Asigură-te că Locația este activă în Setările telefonului.'; if(/iPhone|iPad|iPod/i.test(ua)) return 'Pe iPhone: Settings → Privacy & Security → Location Services → Safari/Browser: While Using the App și Precise Location ON. Dacă e PWA instalată: Settings → [numele aplicației] → Location → While Using.'; return ''; }
 async function getGeo(){ if(!isSecure()){ geoNote.textContent = 'Geolocația este blocată pe conexiuni nesecurizate. Deschide aplicația pe HTTPS (ex: GitHub Pages) sau pe localhost.'; toast('Activează HTTPS pentru geolocație pe mobil.'); return; } if(!('geolocation' in navigator)){ toast('Geolocația nu este suportată de acest browser.'); return; } try{ if(navigator.permissions && navigator.permissions.query){ const st = await navigator.permissions.query({name:'geolocation'}); if(st.state === 'denied'){ geoNote.textContent = 'Permisiunea de locație este blocată la nivel de browser/sistem. ' + platformHint(); toast('Permite accesul la locație în setările browserului.'); return; } } }catch{}
-  btnGeo.disabled = true; btnGeo.textContent = 'Se obține locația…'; const opts1 = {enableHighAccuracy:true, timeout:8000, maximumAge:0}; const opts2 = {enableHighAccuracy:false, timeout:20000, maximumAge:60000}; function onSuccess(pos){ lat.value = pos.coords.latitude.toFixed(6); lon.value = pos.coords.longitude.toFixed(6); geoNote.textContent = ''; toast('Geolocație preluată.'); btnGeo.disabled=false; btnGeo.textContent='Obține geolocația'; if(!manualCoords.checked){ lat.readOnly = true; lon.readOnly = true; } } function onError(err){ const watchId = navigator.geolocation.watchPosition(p=>{ navigator.geolocation.clearWatch(watchId); onSuccess(p); }, e2=>{ navigator.geolocation.getCurrentPosition(onSuccess, err2=>{ const hint = platformHint(); geoNote.textContent = `Nu s-a putut obține geolocația (${err2.message}). ${hint}`; toast('Activează locația și acordă permisiunea pentru site/aplicație.'); btnGeo.disabled=false; btnGeo.textContent='Obține geolocația'; }, opts2); }, {enableHighAccuracy:true, maximumAge:0}); }
+  btnGeo && (btnGeo.disabled = true); if(btnGeo) btnGeo.textContent = 'Se obține locația…'; const opts1 = {enableHighAccuracy:true, timeout:8000, maximumAge:0}; const opts2 = {enableHighAccuracy:false, timeout:20000, maximumAge:60000}; function onSuccess(pos){ lat.value = pos.coords.latitude.toFixed(6); lon.value = pos.coords.longitude.toFixed(6); geoNote.textContent = ''; toast('Geolocație preluată.'); if(btnGeo){ btnGeo.disabled=false; btnGeo.textContent='Obține geolocația'; } if(!manualCoords?.checked){ lat.readOnly = true; lon.readOnly = true; } } function onError(err){ const watchId = navigator.geolocation.watchPosition(p=>{ navigator.geolocation.clearWatch(watchId); onSuccess(p); }, e2=>{ navigator.geolocation.getCurrentPosition(onSuccess, err2=>{ const hint = platformHint(); geoNote.textContent = `Nu s-a putut obține geolocația (${err2.message}). ${hint}`; toast('Activează locația și acordă permisiunea pentru site/aplicație.'); if(btnGeo){ btnGeo.disabled=false; btnGeo.textContent='Obține geolocația'; } }, opts2); }, {enableHighAccuracy:true, maximumAge:0}); }
   try{ navigator.geolocation.getCurrentPosition(onSuccess, onError, opts1); }catch(e){ onError(e); }
 }
 
+// ======== Indicator OFFLINE & SW update ========
+function updateOnlineUI(){ const on = navigator.onLine; netIndicator.style.display = on ? 'none' : 'inline-block'; offlineBanner.style.display = on ? 'none' : 'block'; }
+window.addEventListener('online', updateOnlineUI);
+window.addEventListener('offline', updateOnlineUI);
+
+function showUpdateBar(reg){ newSWReg = reg; updateBar.style.display = 'block'; }
+btnReload.addEventListener('click', ()=>{ if(newSWReg && newSWReg.waiting){ newSWReg.waiting.postMessage({type:'SKIP_WAITING'}); } });
+btnLater.addEventListener('click', ()=>{ updateBar.style.display = 'none'; });
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js?v=6.1').then(reg => {
+    reg.addEventListener('updatefound', ()=>{
+      const newSW = reg.installing;
+      if(!newSW) return;
+      newSW.addEventListener('statechange', ()=>{
+        if (newSW.state === 'installed' && navigator.serviceWorker.controller) {
+          showUpdateBar(reg);
+        }
+      });
+    });
+  });
+  let refreshing = false;
+  navigator.serviceWorker.addEventListener('controllerchange', ()=>{
+    if (refreshing) return; refreshing = true; location.reload();
+  });
+}
+
 // ======== Evenimente ========
-manualCoords.addEventListener('change', ()=>{ const m = manualCoords.checked; lat.readOnly = !m; lon.readOnly = !m; if(m && !lat.value) lat.focus(); });
+manualCoords?.addEventListener('change', ()=>{ const m = manualCoords.checked; lat.readOnly = !m; lon.readOnly = !m; if(m && !lat.value) lat.focus(); });
 species.addEventListener('change', ()=>{ const sp=species.value; if(sp==='_custom'){ density.readOnly=false; density.value=''; density.placeholder='ex: 0.62'; density.focus(); } else { density.readOnly=true; density.placeholder='auto din specie'; density.value=(WOOD_DENSITY[sp] ?? DEFAULT_DENSITY).toFixed(2); } });
 btnGeo && btnGeo.addEventListener('click', getGeo);
 document.getElementById('btnExportCSV').addEventListener('click', exportCSV);
@@ -367,8 +408,7 @@ document.getElementById('btnAdd').addEventListener('click', addFromInputs);
 btnImport.addEventListener('click', ()=> fileInput.click());
 fileInput.addEventListener('change', ()=>{ const f = fileInput.files && fileInput.files[0]; if(!f){ toast('Niciun fișier selectat'); return; } handleFile(f); fileInput.value=''; });
 
-// ======== Inițializare ========
-(function init(){ document.getElementById('y').textContent = new Date().getFullYear(); parcel.focus(); if(species.value && species.value!=='_custom'){ density.value=(WOOD_DENSITY[species.value] ?? DEFAULT_DENSITY).toFixed(2); } refreshPreview(); setTimeout(()=>{ try{ getGeo(); }catch{} }, 800); if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js').then(()=>console.log('Service Worker înregistrat')); } if(!isSecure()){ geoNote.textContent = 'Sugestie: publică fișierul pe un site HTTPS (ex. GitHub Pages) ca geolocația să funcționeze pe mobil.'; }})();
+(function init(){ document.getElementById('y').textContent = new Date().getFullYear(); updateOnlineUI(); parcel.focus(); if(species.value && species.value!=='_custom'){ density.value=(WOOD_DENSITY[species.value] ?? DEFAULT_DENSITY).toFixed(2); } refreshPreview(); setTimeout(()=>{ try{ getGeo(); }catch{} }, 800); })();
 </script>
 </body>
 </html>
